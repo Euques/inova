@@ -317,6 +317,8 @@ appId: "1:341811259005:web:55cbc721257b0b2ff63314",
 const params = new URLSearchParams(search)
 const pegaA = params.get('a')
 
+var parentURL = window != window.parent ? document.referrer : null;
+
 
         $(document).ready(function () {
             $('#whats').on('input', function () {
@@ -460,6 +462,8 @@ const pegaA = params.get('a')
 
                             .then(() => {
                                 console.log('Foi Gravado')
+                            
+                            window.open(`${parentURL}?p=festas/${pegaA}/bday/${snap.key}`, '_top')
 
                                 document.getElementById('mApelido').innerHTML = apelido.value
 
