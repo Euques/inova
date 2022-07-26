@@ -146,6 +146,37 @@
 </head>
 
 <body>
+    
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+<script>
+
+var firebaseConfig = {
+apiKey: "AIzaSyCNSzDh0tC80lhoFewOCCWFgF4ec2tCqQQ",
+authDomain: "inovabarapp.firebaseapp.com",
+databaseURL: "https://inovabarapp-default-rtdb.firebaseio.com",
+projectId: "inovabarapp",
+storageBucket: "inovabarapp.appspot.com",
+messagingSenderId: "341811259005",
+appId: "1:341811259005:web:55cbc721257b0b2ff63314",
+
+    };
+
+    // Initialize Firebase
+
+    firebase.initializeApp(firebaseConfig);
+
+</script>
+    
+    
+    
+    
     <div class="container text-center ">
         <h1 id="mApelido" class="display-4">Escolha uma foto</h1>
 
@@ -456,30 +487,6 @@ const pegaA = params.get('a')
 
 </body>
 
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-
-<script>
-
-var firebaseConfig = {
-apiKey: "AIzaSyCNSzDh0tC80lhoFewOCCWFgF4ec2tCqQQ",
-authDomain: "inovabarapp.firebaseapp.com",
-databaseURL: "https://inovabarapp-default-rtdb.firebaseio.com",
-projectId: "inovabarapp",
-storageBucket: "inovabarapp.appspot.com",
-messagingSenderId: "341811259005",
-appId: "1:341811259005:web:55cbc721257b0b2ff63314",
-
-    };
-
-    // Initialize Firebase
-
-    firebase.initializeApp(firebaseConfig);
-
-</script>
 
 </html>
