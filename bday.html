@@ -298,6 +298,7 @@ firebase.database().ref(`festas/${pegaA}/bday`)
 
                 var resultado = snapshot.val()
                 var chave = snapshot.key
+                var zero = snapshot.numChildren()
 
                 let aprovado = ""
 
@@ -334,7 +335,7 @@ how_to_reg
     
                                
     
-                                if(snapshot.numChildren() == 0){
+                                if(zero == 0){
                                     
                                     window.document.getElementById("contaBday").innerHTML = "Essa festas ainda não tem aniversariantes"
                                     
