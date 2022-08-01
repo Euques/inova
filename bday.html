@@ -328,10 +328,22 @@ how_to_reg
 
 
                                 mostraRegras.innerHTML = dadosMostraRegras
-
-                              // conta numeros de lista   
+    
+    
+                                // conta numeros de lista 
+    
                                 let count = window.document.getElementById("mostraRegras").childElementCount;
-                                window.document.getElementById("contaBday").innerHTML = `Essa festa tem ${count} Aniversariantes`;
+    
+                                if(cont < 1){
+                                    
+                                    window.document.getElementById("contaBday").innerHTML = "Essa festas ainda não tem aniversariantes";
+                                    
+                                }else{
+                                    window.document.getElementById("contaBday").innerHTML = `Essa festa tem ${count} Aniversariantes`;
+                                    document.getElementById('ganhouBday').innerHTML = "😍 Parabéns, você ganhou seu Prêmio!"
+                                }
+     
+
 
 
                             })
