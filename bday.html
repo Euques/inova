@@ -332,14 +332,14 @@ how_to_reg
     
                                 // conta numeros de lista 
     
-                                let count = window.document.getElementById("mostraRegras").childElementCount;
+                                let count = window.document.getElementById("mostraRegras")
     
-                                if(count == null){
+                                if(count.childElementCount == null){
                                     
-                                    window.document.getElementById("contaBday").innerHTML = "Essa festas ainda não tem aniversariantes";
+                                    window.document.getElementById("contaBday").innerHTML = "Essa festas ainda não tem aniversariantes"
                                     
                                 }else{
-                                    window.document.getElementById("contaBday").innerHTML = `Essa festa tem ${count} Aniversariantes`;
+                                    window.document.getElementById("contaBday").innerHTML = `Essa festa tem ${count} Aniversariantes`
                                     document.getElementById('ganhouBday').innerHTML = "😍 Parabéns, você ganhou seu Prêmio!"
                                 }
      
