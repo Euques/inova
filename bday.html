@@ -257,7 +257,7 @@ appId: "1:341811259005:web:55cbc721257b0b2ff63314",
     </style>
 
 
-    <p id="contaBday"></p>
+    <p id="contaBday">Sem aniversariantes por enquanto.</p>
     <ul id="mostraRegras"></ul>
 
     <div id="lista"></div>
@@ -335,16 +335,8 @@ how_to_reg
     
                                
     
-                                if(zero == 0){
-                                    
-                                    window.document.getElementById("contaBday").innerHTML = "Essa festas ainda não tem aniversariantes"
-                                    
-                                }else{
-                                    
-                                    let count = window.document.getElementById("mostraRegras").childElementCount
-                                    window.document.getElementById("contaBday").innerHTML = `Essa festa tem ${count} Aniversariantes`
-                                    document.getElementById('ganhouBday').innerHTML = "😍 Parabéns, você ganhou seu Prêmio!"
-                                }
+                                let count = window.document.getElementById("mostraRegras").childElementCount;
+                                window.document.getElementById("contaBday").innerHTML = `Essa festa tem ${count} Aniversariantes`;
      
 
 
