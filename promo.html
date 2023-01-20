@@ -246,11 +246,7 @@ appId: "1:341811259005:web:55cbc721257b0b2ff63314",
                                 <input type="text" class="form-control" id="nome">
                                 <label class="form-label" for="nome">Seu Nome Completo:</label>
                             </div>
-                            <div class="form-outline mb-4">
-
-                                <input type="date" class="form-control" id="data">
-                                <label class="form-label" for="data">Seu Aniversário</label>
-                            </div>
+                       
 
                             <div class="form-outline mb-4">
 
@@ -296,14 +292,14 @@ appId: "1:341811259005:web:55cbc721257b0b2ff63314",
                         </li>
                     </ul>
                 </div>
-                <h4 id="" >com 20 convidados pagantes</h4>
+                <h4 id="" >Tenha em mãos</h4>
                 <div id="" class="">
                     <ul class="">
                         <li >
-                            <p>1 <strong>Garrafa de red label</strong></p>
+                            <p>1 <strong>Dia dos Promoters</strong></p>
                         </li>
                         <li>
-                            <p>1 <strong>Balde de Heineken</strong> long neck com 6 unidades</p>
+                            <p>1 <strong>Regra de cada dia</p>
                         </li>
                     </ul>
                 </div>
@@ -412,7 +408,7 @@ var parentURL = window != window.parent ? document.referrer : null;
 
                         firebase
                             .database()
-                            .ref(`festas/${pegaA}/bday`)
+                            .ref('promo')
                             .push(
 
                                 {
@@ -434,27 +430,37 @@ var parentURL = window != window.parent ? document.referrer : null;
                                 firebase.storage().ref(`bday${anoAtual}/${snap.key}.png`).putString(base64, 'base64', { contentType: 'image/png' }).then(snapshot => {
                                     console.log('snapshot', snapshot)
 
-                                    firebase.storage().ref(`bday${anoAtual}/${snap.key}.png`).getDownloadURL().then(url => {
+                                    firebase.storage().ref(`promo${anoAtual}/${snap.key}.png`).getDownloadURL().then(url => {
                                         console.log('endereço', url)
 
 
                                         var apelido = document.getElementById('apelido').value
                                         var nome = document.getElementById('nome').value
-                                        var data = document.getElementById('data').value
+                                      
                                         var whats = document.getElementById('whats').value
 
                                         firebase.database()
-                                            .ref(`festas/${pegaA}/bday/${snap.key}`)
+                                            .ref(`promo/${snap.key}`)
                                             .set(
 
                                                 {
                                                     foto: url,
                                                     aprovado: false,
-                                                    apelido: 'B-day ' + apelido,
+                                                    apelido: 'Prom.' + apelido,
                                                     nome: nome,
-                                                    data: data,
+                                                   
                                                     whats: whats,
-                                                    status: 'Aniversariante',
+                                                    comicao: 5,
+                                                    status: 'Promoter',
+                                                    
+                                                    segunda: true,
+                                                    terca: true,
+                                                    quarta: true,
+                                                    quinta: true,
+                                                    sexta: true,
+                                                    sabado: true,
+                                                    domingo: true,
+                                                    
                                                     regra: '20 pagantes ganha uma garrafa de Red Label e 1 balde long neck Heineikey com 6 und.',
                                                     segRegra: '20 pagantes ganha uma garrafa de Red Label e 1 balde long neck Heineikey com 6 und.',
                                                     terRegra: '20 pagantes ganha uma garrafa de Red Label e 1 balde long neck Heineikey com 6 und.',
