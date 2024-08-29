@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inova Bar Localização</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        #message {
+            font-size: 2em;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .green {
+            color: #00ff00;
+        }
+
+        .red {
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="message">Verificando sua localização...</div>
+
+    <script>
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+        } else {
+            document.getElementById("message").textContent = "Geolocalização não é suportada pelo seu navegador.";
+        }
+
+        function successCallback(position) {
+            const userLatitude = position.coords.latitude;
+            const userLongitude = position.coords.longitude;
+
+            // Coordenadas do Inova Bar
+            const targetLatitude = -23.4919364;
+            const targetLongitude = -46.6165026;
+
+            // Verifica se o usuário está dentro de um raio de 20 metros
+            const distance = calculateDistance(userLatitude, userLongitude, targetLatitude, targetLongitude);
+
+            const messageElement = document.getElementById("message");
+            if (distance <= 0.02) { // 0.02 km é equivalente a 20 metros
+                messageElement.textContent = "Você está no Inova Bar.";
+                messageElement.classList.add("green");
+            } else {
+                messageElement.textContent = "Você não está próximo ao Inova Bar.";
+                messageElement.classList.add("red");
+            }
+        }
+
+        function errorCallback(error) {
+            console.error(error);
+            document.getElementById("message").textContent = "Erro ao obter localização.";
+        }
+
+        function calculateDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371; // Raio da Terra em km
+            const dLat = degreesToRadians(lat2 - lat1);
+            const dLon = degreesToRadians(lon2 - lon1);
+
+            const a = 
+                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(degreesToRadians(lat1)) * Math.cos(degreesToRadians(lat2)) * 
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+            const distance = R * c; // Distância em km
+            return distance;
+        }
+
+        function degreesToRadians(degrees) {
+            return degrees * (Math.PI / 180);
+        }
+    </script>
+</body>
+</html>
